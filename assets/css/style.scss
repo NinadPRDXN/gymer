@@ -629,6 +629,10 @@ footer {
   }
 }
 
+.footer_part1 form input:focus {
+  outline: none;
+}
+
 .footer_part2 .wrapper {
   padding: 10% 0;
   display: flex;
