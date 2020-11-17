@@ -1,0 +1,674 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 58%;
+  margin: 0 auto;
+}
+/*=================================
+  Header styling starts here
+=================================*/
+
+$primary: rgb(72,212,148);
+
+%capital {
+  text-transform: capitalize;
+}
+
+%upper {
+  text-transform: uppercase;
+}
+
+%space_between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%justify_center {
+  display: flex;
+  justify-content: center;
+}
+
+%hover_effect_1 {
+  transform: scale(1);
+  transition: transform .5s ease;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+%display_none {
+  display: none;
+}
+
+html { font-size: 62.5%; }
+
+.lower { text-transform: lowercase; }
+
+header {
+  width: 100%;
+  position: absolute;
+  color: rgb(255, 255, 255);
+}
+
+header .wrapper { 
+  @extend %space_between;
+  width: 88.5%;
+  padding: 1.7% 0;
+}
+
+h1 a {
+  @extend %capital;
+  @extend %hover_effect_1;
+  color: rgb(255, 255, 255); 
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav ul li + li { margin-left: 3rem; }
+
+nav ul li a {
+  @extend %capital;
+  padding-bottom: .5rem;
+  border-bottom: .2rem solid transparent;
+  color: rgba(255, 255, 255, .8);
+  font-size: 1.2rem;
+  transition: border-bottom .5s ease;
+  &:hover {
+    border-bottom: .2rem solid rgba(255, 255, 255, .8);
+  }
+}
+
+header .contact {
+  @extend %upper;
+  @extend %hover_effect_1;
+  padding: .8rem 1.4rem;
+  border: .1rem solid $primary;
+  border-radius: .5rem;
+  position: relative;
+  top: -.5rem;
+  color: $primary;
+  font-size: .9rem;
+  transform: scale(1);
+}
+
+nav .close, nav .contact, .hamburger { @extend %display_none; }
+
+/*=================================
+  Header styling ends here
+=================================*/  
+
+/*=================================
+  main styling starts here
+=================================*/
+
+main {
+  background-color: rgb(0, 0, 0);
+}
+
+.welcome {
+  padding: 18.1% 0;
+  background-image: url("http://placehold.it/191x191/817C84");
+  background-size: 100% 100%;
+}
+
+.welcome h2 {
+  @extend %capital;
+  width: 50rem;
+  margin: 0 auto;
+  color: rgb(255, 255, 255);
+  font-size: 8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.counter {
+  padding: 5% 0;
+  display: flex;
+}
+
+.counter li {
+  padding-left: 5rem;
+  position: relative;
+}
+
+.counter li+li { margin-left: 10%; }
+
+.member::before, .daily_visitor::before, .health_program::before, .heart_beat::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: $primary;
+  font-family: "Font Awesome 5 Free";
+  font-size: 3.5rem;
+  font-weight: 900;
+  transform: translateY(-50%);
+}
+
+.member::before { content: "\f70c"; }
+
+.daily_visitor::before { content: "\f206"; }
+
+.health_program::before { content: "\f7fb"; }
+
+.heart_beat::before { content: "\f21e"; }
+
+.counter span { display: block; }
+
+.digit {
+  color: rgb(255, 255, 255);
+  font-size: 3rem;
+}
+
+.digit_title {
+  @extend %capital;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.up_fitness { @extend %space_between; }
+
+.up_fitness li { width: 45%; }
+
+.up_fitness li:nth-child(1) { padding-top: 4%; }
+
+%heading_style {
+  color: $primary;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.up_fitness li:nth-child(1) h3 {
+  @extend %heading_style;
+  width: 70%;
+  padding-bottom: 3%;
+}
+
+.up_fitness li:nth-child(1) p {
+  padding-bottom: 7%;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.up_fitness li:nth-child(1) a {
+  @extend %hover_effect_1;
+  padding: 4% 6%;
+  border-radius: .3rem;
+  background-color: $primary;
+  color: rgb(0, 0, 0);
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.up_fitness li:nth-child(2) figure img {
+  width: 95%;
+  height: 95%;
+  box-shadow: .9rem .9rem $primary;
+}
+
+.up_fitness li:nth-child(2) figcaption { @extend %display_none; }
+
+.classes { padding: 7% 0; }
+
+.classes h3 { @extend %heading_style; }
+
+%paragraph {
+  width: 50%;
+  padding: 3% 0;
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.classes p { @extend %paragraph; }
+
+.images .wrapper { width: 100%; }
+
+.images figcaption { @extend %display_none; }
+
+.classes_slider { display: flex; }
+
+.classes_slider li { width: 25%; }
+
+.slider_cntrl {
+  @extend %justify_center;
+  padding: 2% 0;
+}
+
+.slider_cntrl li {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  text-indent: -9999px;
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.slider_cntrl li+li { margin-left: 1rem; }
+
+.slider_cntrl .current { background-color: $primary; }
+
+.slider_cntrl .rest { background-color: rgb(211, 211, 211); }
+
+.schedule { padding: 4% 0; }
+
+.schedule h3 { @extend %heading_style; }
+
+.schedule p { @extend %paragraph; }
+
+.days {
+  @extend %capital;
+  @extend %justify_center
+}
+
+.days li {
+  padding: 1% 2%;
+  border-radius: .4rem;
+  color: $primary;
+  cursor: pointer;
+  font-size: 1.1rem;
+  @extend %hover_effect_1;
+}
+
+.days .current {
+  background-color: $primary;
+  color: rgb(255, 255, 255);
+}
+
+.time_table {
+  padding-top: 3%;
+}
+
+.time_table ul {
+  display: flex;
+  li {
+    width: 25%;
+    padding: 1.8% 1%;
+    border: .1rem solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+  }
+}
+
+.task, .teacher, .join_now { @extend %capital; }
+
+.join_now a { 
+  color: $primary;
+  @extend %hover_effect_1;
+}
+
+.trainers h3 { @extend %heading_style; }
+
+.trainers .wrapper > p { @extend %paragraph; }
+
+.trainers ul { 
+  @extend %space_between;
+  li {
+    width: 30%;
+    figcaption {
+      @extend %capital;
+      padding: 10% 0 2%;
+      color: rgb(255, 255, 255);
+      font-size: 2rem;
+    }
+    span {
+      @extend %capital;
+      color: rgb(255, 255, 255);
+      font-size: 1.1rem;
+    }
+    p {
+      padding: 2% 0;
+      color: rgb(255, 255, 255);
+      font-size: 1.1rem;
+    }
+  }
+  img {
+    box-shadow: .8rem .8rem $primary;
+  }
+}
+
+.trainers ul li:nth-child(2) { transform: translateY(6%); }
+
+.our_featured { padding: 15% 0 5%; }
+
+.our_featured h3 { 
+  @extend %heading_style;
+  width: 46%;
+}
+
+.our_featured .wrapper > p { @extend %paragraph; }
+
+.services { 
+  @extend %space_between;
+  li {
+    width: 31%;
+    background-color: $primary;
+    div {
+      padding: 20% 15% 32%;
+    }
+  }
+}
+
+.services h4 {
+  @extend %capital;
+  padding-bottom: 5%;
+  font-size: 1.7rem;
+  a {
+    color: rgb(255, 255, 255);
+    @extend %hover_effect_1
+  }
+  &::before {
+    padding-bottom: 5%;
+    display: block;
+    color: rgb(255, 255, 255);
+    font-family: "Font Awesome 5 Free";
+    font-size: 4rem;
+    font-weight: 900;
+  }
+}
+
+.crossfit::before { content: "\f7fb"; }
+
+.aerobics::before { content: "\f21e"; }
+
+.gym::before { content: "\f70c"; }
+
+.services p { 
+  line-height: 1.5;
+  color: rgba(255, 255, 255, .8);
+}
+
+.contact_us {
+  padding: 5% 0;
+  background-color: rgb(18,18,18);
+  h3 {
+    @extend %heading_style;
+  }
+  p {
+    padding: 3% 0 5%;
+    color: rgb(255, 255, 255);
+  }
+  .wrapper {
+    width: 33.3%;
+  }
+}
+
+.contact_us form {
+  width: 100%;
+}
+
+.contact_us form input[type="text"]::placeholder, .text_area textarea::placeholder {
+  color:rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-size: 1.1rem;
+}
+
+.contact_us form input[type="text"], .text_area textarea {
+  border: .2rem solid rgb(255, 255, 255);
+  margin: 1.4% 0;
+  background-color: transparent;
+  color: white;
+}
+
+.contact_us form .form_mid input[type="text"], .text_area textarea {
+  padding: 1.5% 0 1.5% 2%;
+}
+
+.form_layer1 {
+  @extend %space_between;
+  & > div {
+    width: 46.5%;
+    input {
+      width: 100%;
+      padding: 3% 0 3% 3.5%;
+    }
+  }
+}
+
+.form_mid input, .text_area textarea{
+  width: 100%;
+}
+
+.text_area textarea {
+  max-width: 100%;
+  height: 20rem;
+}
+
+.contact_us .submit input {
+  padding: 3.5% 15%;
+  border: none;
+  border-radius: .2rem;
+  background-color: $primary;
+  font-size: .8rem;
+  font-weight: 800;
+  @extend %hover_effect_1;
+}
+
+.contact_us form input:focus {
+  outline: none;
+}
+/*=================================
+  main styling ends here
+=================================*/
+
+/*=================================
+  footer styling starts here
+=================================*/ 
+footer {
+  background-color: rgb(0, 0, 0);
+}
+
+.footer_part1 .wrapper {
+  @extend %space_between;
+  padding: 2% 0;
+  & > div {
+    width: 27%;
+  }
+}
+
+.footer_part1 .wrapper > div:nth-child(2) {
+  margin-left: auto;
+}
+
+.footer_part1 h4 {
+  padding: 7% 0;
+  color: rgb(255, 255, 255);
+  font-size: 1.01rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer_part1 p {
+  color: rgb(255, 255, 255);
+  line-height: 1.5;
+}
+
+.footer_part1 li {
+  @extend %capital;
+  display: block;
+  font-size: 1.2rem;
+  a {
+    color: $primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer_part1 li + li {
+  margin-top: 5%;
+}
+
+.footer_part1 form {
+  width: 100%;
+  display: flex;
+  input[type="text"] {
+    padding: .5rem 0 .5rem .8rem;
+    border: .2rem solid rgb(255, 255, 255);
+    background-color: transparent;
+    color: white;
+    &::placeholder {
+      color: rgb(255, 255, 255);
+      font-size: 1rem;
+    }
+  }
+  
+  input[type="submit"] {
+    padding: .9rem .8rem;
+    border: none;
+    background-color: $primary;
+    font-size: .8rem;
+    font-weight: 800;
+    &:hover {
+      opacity: .5;
+    }
+  }
+}
+
+.footer_part2 .wrapper {
+  padding: 10% 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer_part2 span {
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+}
+
+.footer_part2 a {
+  @extend %capital;
+  @extend %hover_effect_1;
+  color: $primary;
+}
+
+
+
+ /*=================================
+  footer styling ends here
+=================================*/ 
+
+/*media query starts*/
+/*media query for 1120px starts here*/
+@media only screen and (max-width: 1120px) {
+  html { font-size: 50%; }
+}
+
+/*media query for 896px starts here*/
+@media only screen and (max-width: 896px) {
+
+  .member::before, .daily_visitor::before, .health_program::before, .heart_beat::before {
+    font-size: 2.5rem;
+  }
+
+  .digit {
+    font-size: 2rem;
+  }
+  
+  .digit_title {
+    font-size: .5rem;
+  }
+}
